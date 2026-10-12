@@ -55,13 +55,18 @@ async function fetchRecipes(searchPhrase) {
 // Hämtar det första receptet från sökresultatet.
     const recipe = data.recipes[0];
 
-// Visar receptets namn på sidan.
+// Visar receptets information och ingredienser på sidan.
     recipeSection.innerHTML = `<h2>${recipe.name}</h2>
     <img src="${recipe.image}" alt="${recipe.name}" >
     <p>Servings: ${recipe.servings}</p>
     <p>Preparation time: ${recipe.prepTimeMinutes} minutes</p>
     <p>Cooking time: ${recipe.cookTimeMinutes} minutes</p>
     <p>Difficulty: ${recipe.difficulty}</p>
+
+    <h3>Ingredients</h3>
+    <ul>
+        ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join("")}
+    </ul>
 `;
 
 
