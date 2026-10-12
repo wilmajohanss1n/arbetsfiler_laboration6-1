@@ -61,6 +61,7 @@ async function fetchRecipes(searchPhrase) {
     <p>Servings: ${recipe.servings}</p>
     <p>Preparation time: ${recipe.prepTimeMinutes} minutes</p>
     <p>Cooking time: ${recipe.cookTimeMinutes} minutes</p>
+    <p>Difficulty: ${recipe.difficulty}</p>
 `;
 
 
