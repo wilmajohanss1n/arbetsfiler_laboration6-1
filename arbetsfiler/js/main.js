@@ -33,10 +33,20 @@ searchForm.addEventListener("submit", function (event) {
 
 // Hämtar recept från DummyJason API.
 async function fetchRecipes(searchPhrase) {
-    const response = await fetch( `https://dummyjson.com/recipes/search?q=${encodeURIComponent(searchPhrase)}`);
+    try {    
+    const response = await fetch(`https://dummyjson.com/recipes/search?q=${encodeURIComponent(searchPhrase)}`);
+
+    if (!response.ok) {
+        throw new Error("Something went wrong");
+    }
+    
     const data = await response.json();
     console.log(data);
 
+    } catch (error) {
+        console.error("Could not fetch recipes:", error);
+        messageSection.textContent = "Something went wrong. Please try again later.";
+    }
   }
 
 
