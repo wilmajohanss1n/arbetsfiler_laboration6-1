@@ -51,7 +51,18 @@ async function fetchRecipes(searchPhrase) {
 
 // Tömmer tidigare meddelande om recept hittades.
     messageSection.textContent = "";
-    console.log(data);
+
+// Hämtar det första receptet från sökresultatet.
+    const recipe = data.recipes[0];
+
+// Visar receptets namn på sidan.
+    recipeSection.innerHTML = `<h2>${recipe.name}</h2>
+    <img src="${recipe.image}" alt="${recipe.name}" >
+    <p>Servings: ${recipe.servings}</p>
+    <p>Preparation time: ${recipe.prepTimeMinutes} minutes</p>
+    <p>Cooking time: ${recipe.cookTimeMinutes} minutes</p>
+`;
+
 
     } catch (error) {
         console.error("Could not fetch recipes:", error);
