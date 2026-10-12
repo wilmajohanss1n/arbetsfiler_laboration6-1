@@ -16,8 +16,17 @@ const recipeSection= document.querySelector("#recipe");
 searchForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // Hämtar värdet från sökfältet.
+    // Hämtar sökfrasen och tar bort onödiga mellanslag.
     const searchPhrase = searchInput.value.trim();
+
+// Kontrollerar att användaren har skrivit en sökfras.
+    if (searchPhrase === "") {
+        errorMessage.textContent = "Please enter a search term.";
+        return;
+    }
+
+    // Rensar eventuella tidigare felmeddelanden.
+    errorMessage.textContent = "";
 
     console.log(searchPhrase);
 });
