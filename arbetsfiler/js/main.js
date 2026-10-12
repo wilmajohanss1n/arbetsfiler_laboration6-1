@@ -28,8 +28,16 @@ searchForm.addEventListener("submit", function (event) {
     // Rensar eventuella tidigare felmeddelanden.
     errorMessage.textContent = "";
 
-    console.log(searchPhrase);
+    fetchRecipes(searchPhrase);
 });
+
+// Hämtar recept från DummyJason API.
+async function fetchRecipes(searchPhrase) {
+    const response = await fetch( `https://dummyjson.com/recipes/search?q=${encodeURIComponent(searchPhrase)}`);
+    const data = await response.json();
+    console.log(data);
+
+  }
 
 
 
