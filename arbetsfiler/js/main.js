@@ -41,6 +41,16 @@ async function fetchRecipes(searchPhrase) {
     }
     
     const data = await response.json();
+
+// Kontrollerar om sökningen hittade några recept.
+    if (data.recipes.length === 0) {
+        recipeSection.innerHTML = "";
+        messageSection.textContent = "No recipes found. Please try another search term.";
+        return;
+    }
+
+// Tömmer tidigare meddelande om recept hittades.
+    messageSection.textContent = "";
     console.log(data);
 
     } catch (error) {
