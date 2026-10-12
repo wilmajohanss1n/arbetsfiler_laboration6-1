@@ -77,6 +77,7 @@ async function fetchRecipes(searchPhrase) {
 
     } catch (error) {
         console.error("Could not fetch recipes:", error);
+        recipeSection.innerHTML = "";
         messageSection.textContent = "Something went wrong. Please try again later.";
     }
   }
